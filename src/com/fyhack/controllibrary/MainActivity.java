@@ -1,7 +1,8 @@
 package com.fyhack.controllibrary;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,8 +10,13 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
+import com.fyhack.R;
+import com.fyhack.dockedlistview.DockedListViewActivity;
+
 public class MainActivity extends Activity implements OnClickListener{
 	private LinearLayout mainLayout;
+	
+	public final int DockedListViewId=1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,8 @@ public class MainActivity extends Activity implements OnClickListener{
 				LayoutParams.WRAP_CONTENT);
 		Button btn1=new Button(this);
 		btn1.setText(R.string.btn_dock);
+		btn1.setId(DockedListViewId);
+		btn1.setOnClickListener(this);
 		mainLayout.addView(btn1,params);
 	}
 
@@ -39,7 +47,11 @@ public class MainActivity extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		
+		switch(v.getId()){
+			case DockedListViewId :
+				this.startActivity(new Intent(this,DockedListViewActivity.class));
+				break;
+		}
 	}
 
 }
