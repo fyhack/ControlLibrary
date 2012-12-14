@@ -2,7 +2,9 @@
 <resources>
 
     <string name="app_name">ControlLibrary</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-
+	
+     <!-- button name -->
+     <string name="btn_dock">listview docked demo</string>
+     
 </resources>
