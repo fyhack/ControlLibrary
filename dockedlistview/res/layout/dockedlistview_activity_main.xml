@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+    
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/docked_head_1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#8E8E8E"
+    android:padding="6dp"
+    android:textColor="#000"
+    android:textStyle="bold"
+    android:text="停靠区"
+     />
+</RelativeLayout>
