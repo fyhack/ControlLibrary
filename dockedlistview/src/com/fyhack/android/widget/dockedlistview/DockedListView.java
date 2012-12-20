@@ -1,4 +1,4 @@
-package com.fyhack.dockedlistview;
+package com.fyhack.android.widget.dockedlistview;
 
 import org.fyhack.dockedlistview.R;
 
@@ -16,6 +16,8 @@ import android.widget.RelativeLayout;
 
 public class DockedListView extends RelativeLayout {
 	public static final String TAG = DockedListView.class.getSimpleName();
+	public final int DOCKED_VIEW_ID=10001;
+	public final int DOCKED_TEMPVIEW_ID=10002;
 	private Context c;
 	private ListView listView;
 	public View dockedView,dockedTempView, headView;
@@ -37,18 +39,19 @@ public class DockedListView extends RelativeLayout {
 		this.addView(listView, lp);
 		
 		dockedTempView=LayoutInflater.from(c).inflate(
-				R.layout.docked_head, null);
+				R.layout.docked_layout, null);
+		dockedTempView.setId(DOCKED_TEMPVIEW_ID);
 		lp = new RelativeLayout.LayoutParams(
 				ViewGroup.LayoutParams.FILL_PARENT,
 				ViewGroup.LayoutParams.WRAP_CONTENT);
 		this.addView(dockedTempView,lp);
 		
 		dockedView=LayoutInflater.from(c).inflate(
-				R.layout.docked_head, null);
-		dockedView.setId(111);
+				R.layout.docked_layout, null);
+		dockedView.setId(DOCKED_VIEW_ID);
 		
 		headView=LayoutInflater.from(c).inflate(
-				R.layout.listview_head, null);
+				R.layout.listview_head_layout, null);
 		((ViewGroup)headView).addView(dockedView);
 		listView.addHeaderView(headView);
 	}
@@ -69,9 +72,9 @@ public class DockedListView extends RelativeLayout {
 					int x = location[1];
 					Log.i(TAG, "x:"+x);
 					if (x < dockedHeight) {
-						findViewById(R.id.docked_head_temp).setVisibility(View.VISIBLE);
+						findViewById(DOCKED_TEMPVIEW_ID).setVisibility(View.VISIBLE);
 					}else{
-						findViewById(R.id.docked_head_temp).setVisibility(View.GONE);
+						findViewById(DOCKED_TEMPVIEW_ID).setVisibility(View.GONE);
 					}
 				}
 			}
