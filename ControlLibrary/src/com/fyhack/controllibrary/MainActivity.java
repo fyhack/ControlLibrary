@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
-import com.fyhack.R;
+import com.fyhack.dockedlistview.DockedListViewActivity;
 
 public class MainActivity extends Activity implements OnClickListener{
 	private LinearLayout mainLayout;
@@ -48,7 +48,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		switch(v.getId()){
 			case DockedListViewId :
-				this.startActivity(new Intent(this,org.fyhack.dockedlistview.MainActivity.class));
+				this.startActivity(new Intent(this,DockedListViewActivity.class));
 				break;
 		}
 	}
