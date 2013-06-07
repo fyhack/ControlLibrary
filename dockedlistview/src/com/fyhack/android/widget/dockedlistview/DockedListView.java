@@ -14,6 +14,14 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+/**
+ * 停靠栏示例测试
+ *
+ * version : 1.0
+ * modified by: fyhack
+ * email: fyhack.cn@gmail.com
+ * last modified: 2013-6-7
+ */
 public class DockedListView extends RelativeLayout {
 	public static final String TAG = DockedListView.class.getSimpleName();
 	public final int DOCKED_VIEW_ID=10001;
