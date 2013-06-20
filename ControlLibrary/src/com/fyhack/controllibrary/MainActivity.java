@@ -12,6 +12,14 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import com.fyhack.dockedlistview.DockedListViewActivity;
 
+/**
+ * 
+ *
+ * version : 1.0
+ * modified by: fyhack
+ * email: fyhack.cn@gmail.com
+ * last modified: 2013-6-20
+ */
 public class MainActivity extends Activity implements OnClickListener{
 	private LinearLayout mainLayout;
 	
