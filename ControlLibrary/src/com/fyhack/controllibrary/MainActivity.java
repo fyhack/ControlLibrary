@@ -13,7 +13,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import com.fyhack.dockedlistview.DockedListViewActivity;
 
 /**
- * 组件演示demo
+ * 组件演示demo(测试)
  *
  * version : 1.0
  * modified by: fyhack
