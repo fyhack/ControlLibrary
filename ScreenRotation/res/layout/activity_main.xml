@@ -1,0 +1,67 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TextView android:padding="3dip" />
+
+        <Button
+            android:id="@+id/bt_lan"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_lan" />
+
+        <TextView android:padding="3dip" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/bt_por"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_por" />
+
+        <Button
+            android:id="@+id/bt_re"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_re" />
+
+        <Button
+            android:id="@+id/bt_re_por"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_re_por" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TextView android:padding="3dip" />
+
+        <Button
+            android:id="@+id/bt_re_lan"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_re_lan" />
+
+        <TextView android:padding="3dip" />
+    </TableRow>
+
+    <TextView 
+        android:gravity="center"
+        android:text="@string/version"/>
+</TableLayout>

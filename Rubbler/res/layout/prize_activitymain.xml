@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    
+    <!--
+	 必须设置
+	 android:layout_width
+	 android:layout_height 
+	 的值为常量
+    -->
+
+    <org.delmore.rubble.Text_Rubbler
+        android:padding="10dp"
+        android:id="@+id/rubbler"
+        android:layout_width="235dip"
+        android:layout_height="60dip"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="刮刮乐\n中奖!"
+        android:textColor="#FFF"
+        android:background="#F0F"
+         />
+
+</RelativeLayout>
