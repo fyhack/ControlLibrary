@@ -77,6 +77,12 @@ public class FloatWindowSmallView extends LinearLayout {
 	}
 
 	@Override
+    public boolean callOnClick() {
+	    openBigWindow();
+        return super.callOnClick();
+    }
+
+    @Override
 	public boolean onTouchEvent(MotionEvent event) {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
