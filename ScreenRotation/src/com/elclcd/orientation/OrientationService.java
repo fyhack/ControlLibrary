@@ -10,6 +10,7 @@ import android.app.Service;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -29,6 +30,7 @@ import android.view.WindowManager;
 public class OrientationService extends Service {
     public final String TAG = "OrientationService";
     public static final String FLAG_VALUE = "flag_value";
+    public static final String FLOAT_SWITCH = "float_switch";
     public static final int RESTFLAG = -9999;
     private WindowManager manager;
     private View window;
@@ -49,7 +51,7 @@ public class OrientationService extends Service {
         manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         if (timer == null) {
             timer = new Timer();
-            timer.scheduleAtFixedRate(new RefreshTask(), 0, 500);
+            timer.scheduleAtFixedRate(new RefreshTask(), 0, 2000);
         }
     }
 
@@ -61,12 +63,27 @@ public class OrientationService extends Service {
             manager.addView(window, new MyLayoutParams(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED));
         }
 
-        int rotation = intent.getIntExtra(FLAG_VALUE, ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-
-        if (rotation == RESTFLAG) {
-            MyWindowManager.createSmallWindow(getApplicationContext());
+        boolean float_switch = intent.getBooleanExtra(FLOAT_SWITCH, false);
+        if (float_switch) {
+            boolean b;
+            if(MyWindowManager.isWindowShowing()){
+                MyWindowManager.removeSmallWindow(getApplicationContext());
+                MyWindowManager.removeBigWindow(getApplicationContext());
+                MainActivity.btfloat.setText(R.string.bt_float_on);
+                b = false;
+            }else{
+                MyWindowManager.createSmallWindow(getApplicationContext());
+                MainActivity.btfloat.setText(R.string.bt_float_off);
+                b = true;
+            }
+            SharedPreferences settings = getSharedPreferences(MainActivity.TAG, 0);   
+            SharedPreferences.Editor editor = settings.edit();   
+            editor.putBoolean("float", b);
+            editor.commit();
         }
-
+        
+        int rotation = intent.getIntExtra(FLAG_VALUE, ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        
         if (rotation == RESTFLAG) {
             manager.removeView(window);
             window = null;
@@ -78,7 +95,8 @@ public class OrientationService extends Service {
         boolean is = Settings.System.putInt(getContentResolver(), "accelerometer_rotation", rotation);
         Log.w(TAG, "settings ：" + is);
 
-        manager.updateViewLayout(window, new MyLayoutParams(rotation));
+        if(rotation != ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+            manager.updateViewLayout(window, new MyLayoutParams(rotation));
 
         Log.i(TAG, "rotation:" + rotation);
         return super.onStartCommand(intent, flags, startId);
@@ -95,22 +113,26 @@ public class OrientationService extends Service {
 
         @Override
         public void run() {
-            // 当前界面是桌面，且没有悬浮窗显示，则创建悬浮窗。
-            if (isHome() && !MyWindowManager.isWindowShowing()) {
+            if (isHome() && MyWindowManager.isExistSmallWindow()) {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        MyWindowManager.createSmallWindow(getApplicationContext());
+                        if(MyWindowManager.getBigWindowVisible() != View.VISIBLE ){
+                            MyWindowManager.visibleSmallWindow();
+                        }
                     }
                 });
             }
-            // 当前界面不是桌面，且有悬浮窗显示，则移除悬浮窗。
             else if (!isHome() && MyWindowManager.isWindowShowing()) {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        MyWindowManager.removeSmallWindow(getApplicationContext());
-                        MyWindowManager.removeBigWindow(getApplicationContext());
+                        if(MyWindowManager.isExistSmallWindow()){
+                            MyWindowManager.invisibleSmallWindow();
+                        }
+                        if(MyWindowManager.isExistBigWindow()){
+                            MyWindowManager.invisibleBigWindow();
+                        }
                     }
                 });
             }

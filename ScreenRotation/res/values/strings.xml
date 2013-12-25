@@ -10,6 +10,8 @@
     <string name="bt_re_por">垂直反转</string>
     <string name="bt_re">重置</string>
     
+    <string name="bt_float_off">关闭悬浮插件</string>
+    <string name="bt_float_on">开启悬浮插件</string>
     <string name="version">Copyright © 2008 SHENZHEN ELECTRON TECHNOLOGY CO.,LTD</string>
 
 </resources>
