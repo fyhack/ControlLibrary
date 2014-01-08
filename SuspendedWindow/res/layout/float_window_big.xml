@@ -7,32 +7,25 @@
 	android:orientation="vertical"
     >
     <Button 
-        android:id="@+id/f_lan"
+        android:id="@+id/open_setting"
         android:layout_width="100dip"
         android:layout_height="40dip"
         android:layout_gravity="center_horizontal"
         android:text="@string/bt_lan"
         />
     <Button 
-        android:id="@+id/f_por"
+        android:id="@+id/close_setting"
         android:layout_width="100dip"
         android:layout_height="40dip"
         android:layout_gravity="center_horizontal"
         android:text="@string/bt_por"
         />
     <Button 
-        android:id="@+id/f_relan"
+        android:id="@+id/close_myself"
         android:layout_width="100dip"
         android:layout_height="40dip"
         android:layout_gravity="center_horizontal"
         android:text="@string/bt_re_lan"
-        />
-    <Button 
-        android:id="@+id/f_repor"
-        android:layout_width="100dip"
-        android:layout_height="40dip"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/bt_re_por"
         />
     <Button 
         android:id="@+id/back"

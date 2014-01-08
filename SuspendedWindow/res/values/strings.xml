@@ -2,11 +2,11 @@
 
     <string name="app_name">Screen rotation</string>
    <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Screen Rotation</string>
+    <string name="title_activity_main">suspend windows</string>
     
-       <string name="bt_lan">Horizontal</string>
-    <string name="bt_por">Vertical</string>
-    <string name="bt_re_lan">FlipH</string>
+       <string name="bt_lan">open setting</string>
+    <string name="bt_por">close setting</string>
+    <string name="bt_re_lan">close</string>
     <string name="bt_re_por">FlipV</string>
     <string name="bt_re">Reset</string>
     

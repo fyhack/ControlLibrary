@@ -4,6 +4,7 @@ import com.elclcd.orientation.R.id;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -23,12 +24,12 @@ public class MainActivity extends Activity {
     public static String TAG = "com.elclcd.orientation";
     private Button lan, por, reLan, rePor ,re;
     public static Button btfloat;
+    IntentFilter  i;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         lan = (Button) findViewById(id.bt_lan);
         por = (Button) findViewById(id.bt_por);
         reLan = (Button) findViewById(id.bt_re_lan);
