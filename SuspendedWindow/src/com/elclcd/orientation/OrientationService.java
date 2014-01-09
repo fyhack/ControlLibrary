@@ -6,9 +6,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.Service;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;

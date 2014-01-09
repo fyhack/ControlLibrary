@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.Instrumentation;
 import android.content.Context;
 import android.content.Intent;
@@ -28,9 +29,12 @@ public class FloatWindowBigView extends LinearLayout {
      * 记录大悬浮窗的高度
      */
     public static int viewHeight;
+    
+    private Context c;
 
     public FloatWindowBigView(final Context context) {
         super(context);
+        c = context;
         LayoutInflater.from(context).inflate(R.layout.float_window_big, this);
         View view = findViewById(R.id.big_window_layout);
         viewWidth = view.getLayoutParams().width;

@@ -44,8 +44,11 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(MainActivity.this, OrientationService.class);
                 intent.putExtra(OrientationService.FLOAT_SWITCH, true);
                 startService(intent);
+                MainActivity.this.finish();
                 return;
             }
         }
     };
+    
+    
 }
