@@ -8,3 +8,4 @@ CustomWidget
 - PieTimer *饼图倒计时*
 - ScreenRotation *设备屏幕旋转*
 - Rubbler *刮刮卡效果*
+- ViewpagerMask *仿照贴吧客户端的欢迎界面*
